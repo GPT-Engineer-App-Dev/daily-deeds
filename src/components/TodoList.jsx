@@ -8,11 +8,9 @@ function TodoList() {
   const [editIndex, setEditIndex] = useState(-1);
   const [editText, setEditText] = useState('');
 
-  // Function to handle adding a new todo or saving an edit
+  // Function to handle adding a new todo
   const handleAddTodo = () => {
-    if (editIndex !== -1) {
-      handleSaveEdit();
-    } else if (input.trim() !== '') {
+    if (input.trim() !== '') {
       setTodos([...todos, input]);
       setInput('');
     }
@@ -20,10 +18,12 @@ function TodoList() {
 
   // Function to save the edited todo
   const handleSaveEdit = () => {
-    const updatedTodos = todos.map((todo, index) => index === editIndex ? editText : todo);
-    setTodos(updatedTodos);
-    setEditIndex(-1);
-    setEditText('');
+    if (editIndex !== -1) {
+      const updatedTodos = todos.map((todo, index) => index === editIndex ? editText : todo);
+      setTodos(updatedTodos);
+      setEditIndex(-1);
+      setEditText('');
+    }
   };
 
   // Function to remove a todo from the list
