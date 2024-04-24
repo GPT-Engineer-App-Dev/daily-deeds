@@ -9,15 +9,17 @@ function TodoList() {
   const [editText, setEditText] = useState('');
 
   const handleAddTodo = () => {
-    if (editIndex !== -1) {
-      const updatedTodos = todos.map((todo, index) => index === editIndex ? editText : todo);
-      setTodos(updatedTodos);
-      setEditIndex(-1);
-      setEditText('');
-    } else if (input.trim() !== '') {
+    if (input.trim() !== '') {
       setTodos([...todos, input]);
       setInput('');
     }
+  };
+
+  const handleSaveEdit = () => {
+    const updatedTodos = todos.map((todo, index) => index === editIndex ? editText : todo);
+    setTodos(updatedTodos);
+    setEditIndex(-1);
+    setEditText('');
   };
 
   const handleRemoveTodo = (index) => {
@@ -28,13 +30,6 @@ function TodoList() {
   const handleEditTodo = (index) => {
     setEditIndex(index);
     setEditText(todos[index]);
-  };
-
-  const handleSaveEdit = () => {
-    const updatedTodos = todos.map((todo, index) => index === editIndex ? editText : todo);
-    setTodos(updatedTodos);
-    setEditIndex(-1);
-    setEditText('');
   };
 
   return (
