@@ -49,7 +49,7 @@ function TodoList() {
       <Button onClick={handleAddTodo} colorScheme="purple" mt="2">Add Todo</Button>
       <List spacing={3} mt="4">
         {todos.map((todo, index) => (
-          <ListItem key={index} d="flex" m="4" justifyContent="space-between" alignItems="center" boxShadow="base">
+          <ListItem key={index} d="flex" m="6" justifyContent="space-between" alignItems="center" boxShadow="base">
             {editIndex === index ? (
               <Input
                 value={editText}
