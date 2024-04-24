@@ -26,7 +26,7 @@ function TodoList() {
         onChange={(e) => setInput(e.target.value)}
         onKeyPress={(e) => e.key === 'Enter' && handleAddTodo()}
       />
-      <Button onClick={handleAddTodo} colorScheme="blue" mt="2">Add Todo</Button>
+      <Button onClick={handleAddTodo} colorScheme="green" mt="2">Add Todo</Button>
       <List spacing={3} mt="4">
         {todos.map((todo, index) => (
           <ListItem key={index} d="flex" justifyContent="space-between" alignItems="center">
